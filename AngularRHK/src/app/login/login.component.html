@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center">
+  <form class="w-45 border border-0  p-10 mt-5">
+    <div class="mb-3">
+      <label for="korsnickoIme" class="form-label">Korisničko ime</label>
+      <input type="email" name="KorisnickiIme" class="form-control" id="korsnickoIme" aria-describedby="emailHelp" [(ngModel)]="txtKorisnickiIme">
+    </div>
+    <div class="mb-3">
+      <label for="lozinka" class="form-label">Password</label>
+      <input type="password" class="form-control" id="lozinka" [(ngModel)]="txtLozinka" name="lozinka">
+    </div>
+    <button  class="btn btn-primary" (click)="btnLogiranje()">Logiraj se</button>
+    <button class="btn btn-warning ms-5" routerLink="/registracija-admin">Prijava Admin</button>
+    <button class="btn btn-success ms-1" routerLink="/registracija-korisnik">Prijava Korisnik</button>
+  </form>
+
+</div>
+
+

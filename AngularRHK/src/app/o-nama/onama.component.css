@@ -1,0 +1,140 @@
+.background-container {
+  background-image: url('src/assets/pozadina.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.poruke{
+  color:white;
+}
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+}
+
+.naslov {
+  margin-bottom: 10px;
+  font-size: 80px;
+  line-height: 1em;
+  letter-spacing: .3px;
+  color: #8e6100;
+  font-family: 'Brush Script MT', cursive;
+  font-weight: 300;
+  box-sizing: border-box;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.tekst {
+  margin-bottom: 10px;
+  font-family: "Montserrat",Sans-serif;
+  font-style: normal;
+  max-width: 500px;
+}
+
+.poruke {
+  color: white;
+}
+.tekst {
+  margin-bottom: 10px;
+  max-width: 500px;
+  white-space: pre-line;
+}
+
+.unos-polje {
+  width: 100%;
+  padding: 5px;
+  margin: 2px 0;
+  text-align: center;
+}
+.unos-teksta {
+  margin-top: 20px;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+}
+.unos-teksta textarea {
+  width: 50%;
+  height: 150px;
+}
+.otvoriFormu{
+  margin-bottom: 50px;
+}
+.tekst-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  white-space: pre-line;
+}
+.contact-container{
+  margin-top: 30px;
+}
+.dodajInformacije{
+  background-color: cadetblue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.dodajInformacije:hover{
+  background-color: dodgerblue;
+}
+.input-container label {
+  margin-bottom: 5px;
+}
+
+.buttonSpasi {
+  background-color: forestgreen;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonSpasi:hover {
+  background-color: darkgreen;
+}
+.buttonZatvori {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonZatvori:hover {
+  background-color: darkred;
+}
+.buttoni {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.buttoni button {
+  margin: 0 10px;
+}

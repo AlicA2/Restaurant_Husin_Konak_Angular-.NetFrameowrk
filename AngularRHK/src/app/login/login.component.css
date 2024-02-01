@@ -1,0 +1,26 @@
+.d-flex.justify-content-center {
+  background-image: url('src/assets/slikaPocetna.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.form-label {
+  color: white;
+}
+
+.form-control {
+  color: black;
+}
+.d-flex.justify-content-center {
+  margin-top: 50px;
+}
+form {
+  margin-bottom: 300px;
+}

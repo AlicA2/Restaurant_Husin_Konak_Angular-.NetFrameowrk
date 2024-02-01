@@ -1,0 +1,124 @@
+<div class="background-container"></div>
+
+<h1 class="header">MENI</h1>
+<div *ngIf="this.loginInformation.isPremisijaAdmin">
+  <button class="button-add" style="margin-right: auto; width: 15%; margin-top: 10px" (click)="otvoriFormu = true">Dodaj jelo/piće</button>
+  <div class="sve">
+    <div class="naslovi" *ngFor="let kategorija of kategorije">
+      <button class="button-delete" (click)="deleteKategorija(kategorija.id)">Obriši kategoriju</button>
+      <h2 class="kategorijaNaziv">{{ kategorija.naziv }}</h2>
+      <div class="jela-container">
+
+        <div class="jelo" *ngFor="let prikaz of getJelaByKategorija(kategorija.id)">
+          <div class="slika-jela-container">
+            <img class="slika-jela" [src]="sanitizeImage(prikaz.slikaBase64)" alt="Slika Menija" width="200" height="150">
+          </div>
+          <div class="tekst-jela">
+            <h5 class="naziv-jela">{{ prikaz.naziv }}</h5>
+            <span class="dotted-line"></span>
+            <p class="opis-jela">{{ prikaz.opis }}</p>
+            <p class="cijena-jela">{{ prikaz.cijena }} KM</p>
+          </div>
+          <button class="button-delete" (click)="ObrisiMeni(prikaz.id)">Obriši meni</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade show" id="exampleModalLive" *ngIf="otvoriFormu" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Dodaj novu kategoriju hrane</h5>
+        <button type="button" class="custom-close-button" aria-label="Close" (click)="otvoriFormu = false">
+          <span>X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Naziv kategorije </label>
+          <input [(ngModel)]="this.kategorija.Naziv" class="form-control" placeholder="Naziv"/>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="buttonZatvori" (click)="otvoriFormu = false">Close</button>
+        <button type="button" class="buttonSpasi" (click)="SpasiKategoriju()">Spasi</button>
+        <button type="button" class="buttonSljedeca" (click)="novaForma=true">Sljedeća stranica</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade show" *ngIf="novaForma" id="exampleModalLive2" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Dodajte novi meni</h5>
+        <button type="button" class="custom-close-button" aria-label="Close" (click)="novaForma = false">
+          <span>X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Kategorija</label>
+          <select class="form-control" [(ngModel)]="meni.kategorija_id">
+            <option *ngFor="let kategorija of kategorije" [ngValue]="kategorija.id">
+              {{ kategorija.naziv }}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Naziv</label>
+          <input [(ngModel)]="this.meni.naziv" class="form-control" placeholder="Naziv"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Opis</label>
+          <input [(ngModel)]="this.meni.opis" class="form-control" placeholder="Opis" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Cijena</label>
+          <input [(ngModel)]="this.meni.cijena" class="form-control" placeholder="Cijena"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Slika:</label>
+          <input type="file" (change)="handleSlikaInput($event)" class="form-control" id="slika" name="slika" accept="image/*" required>
+        </div>
+        <div *ngIf="imagePreview" class="mb-3">
+          <label class="form-label">Pregled slike:</label>
+          <img [src]="imagePreview" class="img-preview" alt="Pregled slike">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="buttonZatvori" (click)="novaForma = false">Close</button>
+          <button type="button" class="buttonSpasi" (click)="dodajMeni()">Spasi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="this.loginInformation.isPremisijaKorisnik">
+  <div class="sve">
+    <div class="naslovi" *ngFor="let kategorija of kategorije">
+      <h2 class="kategorijaNaziv">{{ kategorija.naziv }}</h2>
+      <div class="jela-container">
+
+        <div class="jelo" *ngFor="let prikaz of getJelaByKategorija(kategorija.id)">
+          <div class="slika-jela-container">
+            <img class="slika-jela" [src]="sanitizeImage(prikaz.slikaBase64)" alt="Slika Menija" width="200" height="150">
+          </div>
+          <div class="tekst-jela">
+            <h5 class="naziv-jela">{{ prikaz.naziv }}</h5>
+            <span class="dotted-line"></span>
+            <p class="opis-jela">{{ prikaz.opis }}</p>
+            <p class="cijena-jela">{{ prikaz.cijena }} KM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

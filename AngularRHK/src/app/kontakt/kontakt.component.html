@@ -1,0 +1,110 @@
+<div class="background-container"></div>
+
+<div *ngIf="this.loginInformation.isPremisijaKorisnik" class="contact-container">
+  <h2 class="contact-title">KONTAKTIRAJTE NAS</h2>
+  <h3 class="contact-subtitle">Vaše mišljenje nam znači.</h3>
+  <div class="row">
+    <div class="col-md-8 col-sm-6 col-xs-12 wow fadeInLeft animated" [ngClass]="{'visible': isVisible}" [ngStyle]="animationStyles">
+      <h5 class="co-title">POŠALJITE NAM PORUKU</h5>
+      <p class="pohvala">Imate pohvalu, prijedlog ili zamjerku? Osjećajte se slobodno, da nam to date do znanja.</p>
+      <form id="contact-form" class="form" method="POST">
+        <div class="contact-alert-container"></div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Ime *</label>
+                <input name="first_name" type="text" required [(ngModel)]="kontaktVM.Ime">
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Prezime *</label>
+                <input name="last_name" type="text" required [(ngModel)]="kontaktVM.Prezime">
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>E-mail adresa *</label>
+                <input name="email_address" type="text" required [(ngModel)]="kontaktVM.Email" (input)="onEmailInput($event)">
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Broj telefona *</label>
+                <input name="phone_number" type="tel" pattern="[0-9]*" required [(ngModel)]="kontaktVM.Telefon">
+              </div>
+
+              <div class="col-md-12">
+                <label>Poruka *</label>
+                <textarea name="message" required [(ngModel)]="kontaktVM.Poruka"></textarea>
+              </div>
+
+              <div class="col-md-12 text-center">
+                <button name="submit" class="btn-black send_message" type="submit" (click)="submitKontaktForm()">POŠALJI PORUKU</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInRight animated" [ngClass]="{'visible': isVisible}" [ngStyle]="animationStyles">
+      <address>
+        <span class="co-title">NAŠA ADRESA</span>
+        <p class="info">
+          Bugojno
+          <br>
+          00000 Bugojno
+          <br>
+          Bosna i Hercegovina
+        </p>
+        <p class="info">
+          <a >+387 60 000 000</a>
+          <br>
+          <a >info@husinkonak.ba</a>
+        </p>
+      </address>
+
+      <h5 class="co-title">RADNO VRIJEME</h5>
+      <ul class="time-list">
+        <li><span class="week-name">Ponedjeljak</span> <span>08:00 - 23:00</span></li>
+        <li><span class="week-name">Utorak</span> <span>08:00 - 23:00</span></li>
+        <li><span class="week-name">Srijeda</span> <span>08:00 - 23:00</span></li>
+        <li><span class="week-name">Četvrtak</span> <span>08:00 - 23:00</span></li>
+        <li><span class="week-name">Petak</span> <span>08:00 - 23:00</span></li>
+        <li><span class="week-name">Subota</span> <span>08:00 - 23:00</span></li>
+        <li><span class="week-name">Nedjelja</span> <span>08:00 - 23:00</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="this.loginInformation.isPremisijaAdmin" class="contact-container2">
+  <h2 class="contact-title2">Kontakt poruke</h2>
+
+  <div class="message-container">
+
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Email</th>
+        <th>Telefon</th>
+        <th>Poruka</th>
+        <th>Korisničko ime</th>
+
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let kontakt of kontaktPoruke">
+        <td>{{ kontakt.ime }}</td>
+        <td>{{ kontakt.prezime }}</td>
+        <td>{{ kontakt.email }}</td>
+        <td>{{ kontakt.telefon }}</td>
+        <td>{{ kontakt.poruka }}</td>
+        <td>{{ kontakt.korisnickoIme }}</td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,53 @@
+a{
+  color:White;
+}
+button{
+  color:white;
+
+}
+novi
+{
+  color:white;
+}
+
+.dropdown-menu a{
+  color:black;
+}
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+
+}
+.dropdown-right {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 1;
+}
+.nav-item {
+  font-family: "Roboto", Sans-serif;
+  font-size: 12px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.dostava{
+  color:yellow;
+}
+.nav-link {
+  text-decoration: none;
+}
+
+.logo {
+  pointer-events: none;
+  display: inline-block;
+}
+.logo img {
+  width: 120px;
+  height: auto;
+  border-radius: 50px;
+}
+

@@ -1,0 +1,92 @@
+<div class="background-container"></div>
+
+
+<div >
+  <div class="d-flex justify-content-end" >
+    <button class="btn btn-primary mb-4 mt-4 me-2" *ngIf="loginInfo().isPremisijaKorisnik" (click)="otvoriTemu()">Nova tema</button>
+    <div class="mb-4 mt-4" (click)="clanovi=true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="m-2">
+    <div>
+      <input [(ngModel)] ="filter_tema"  type="checkbox"> Filter by <span style="font-weight: bold">Tema</span> <br>
+      <input  [(ngModel)]="tema_naziv" [disabled]="!filter_tema"><br>
+    </div>
+    <div >
+      <input [(ngModel)]="filter_korisnik" type="checkbox" > Filter by <span style="font-weight: bold">Korisnik</span> <br>
+      <input  [(ngModel)]="korisnik_naziv" [disabled]="!filter_korisnik"><br>
+    </div>
+  </div>
+
+  <div id="poruke-hub-admin " class="mt-4" >
+    <div *ngFor="let t of  filtrirano()" >
+      <div class="pozadinskiOkvir">
+        <h3> Autor: {{t.autor}}</h3>
+        <p><u><i>Pitanje:</i></u> {{t.tema}}</p>
+        <p><u><i>Sadržaj:</i></u> {{t.pitanje}} ?</p>
+        <p><u><i>Datum:</i></u> {{t.datum_kreiranja}}</p>
+        <button class="btn btn-warning"  (click)="otvoriDiskujiu(t)">Otvori diskusiju</button>
+        <button class="btn btn-danger " *ngIf="loginInfo().isPremisijaAdmin" (click)="obrsisiTemu(t)">Ukloni</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--Modal-->
+<div *ngIf="temaObject!=null" class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel"> Novi odgovor </h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="temaObject=null"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <label class="form-label">Naziv teme</label>
+          <input class="form-control" type="text" [(ngModel)]="temaObject.tema">
+          <label class="form-label">Pitanje</label>
+          <textarea class="form-control" rows="4" [(ngModel)]="temaObject.pitanje">
+          </textarea>
+          <div class="modal-footer">
+            <button type="button" class="buttonZatvori" (click)="temaObject=null">Close</button>
+            <button type="button" class="buttonSpasi" (click)="dodajTemu()">Dodaj</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal clannovi-->
+<div *ngIf="clanovi" class="modal fade show" id="exampleModalLive2"  tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel2"> Clanovi foruma </h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="clanovi=null"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <input [(ngModel)] ="filetr_clan"  type="checkbox"> Filter by <span style="font-weight: bold">Ime or prezime</span> <br>
+          <input  [(ngModel)]="clan_ime" [disabled]="!filetr_clan"><br>
+          <ul>
+            <li *ngFor="let k of filtriranoKorsinici()">{{k.ime}} {{k.prezime}}</li>
+            <li *ngFor="let a of filtriranoAdmini()">{{a.ime}} {{a.prezime}}</li>
+          </ul>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="clanovi=null">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

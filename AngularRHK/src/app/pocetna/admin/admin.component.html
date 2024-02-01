@@ -1,0 +1,17 @@
+
+<div id="glavni" class="d-flex mt-4" >
+  <div id="grafika" class="w-75 "  >
+    <canvas id="neki_canvas" width="800" height="600">
+      Your browser does not support HTML5
+    </canvas>
+  </div >
+  <div id="statistika" class="w-25  p-2 border border-dark">
+    <h2>Statistika podataka</h2>
+    <button (click)="pogledaj()" class="btn btn-primary mb-3">Pregledaj statistiku</button>
+    <div *ngIf="list.length>0" class="alert alert-warning" role="alert">
+      <li *ngFor="let item of list">
+        Trenutno ima: {{item}}
+      </li>
+    </div>
+  </div>
+</div>

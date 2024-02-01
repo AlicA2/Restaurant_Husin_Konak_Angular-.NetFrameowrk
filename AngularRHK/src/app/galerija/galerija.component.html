@@ -1,0 +1,65 @@
+
+<div *ngIf="this.loginInformation.isPremisijaKorisnik" class="contact-container">
+
+<div class="background-container"></div>
+
+<div class="d-flex justify-content-center">
+  <h1 class="gallery-title">Dobrodošli u našu galeriju. Nadamo se da ćete uživati u pogledu koji Vam nudimo.</h1>
+  <div class="gallery">
+    <div class="image-container" *ngFor="let imageUrl of slike">
+      <img [src]="imageUrl" (click)="openImage(imageUrl)" alt="Slika">
+      <div class="image-caption">Restoran Husin Konak</div>
+    </div>
+
+  </div>
+
+
+  <div class="modal" [ngClass]="{'show': showModal}">
+    <div class="modal-content">
+      <span class="close-button" (click)="closeImage()">&times;</span>
+      <figure>
+        <img [src]="selectedImage" alt="Slika" class="mfp-img">
+        <figcaption>
+          <div class="mfp-bottom-bar">
+            <div class="mfp-title"></div>
+            <div class="mfp-counter"></div>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div *ngIf="this.loginInformation.isPremisijaAdmin" class="contact-container2">
+  <div class="background-container"></div>
+
+  <div class="d-flex justify-content-center">
+    <h1 class="galerija-title2">Uredite vašu galeriju.</h1>
+    <input class="form-control" #slikaInput id="slika-input" [(ngModel)]="slikainput" type="file" accept="image/*" (change)="Preview()" />
+    <button class="btn btn-success" style="margin-right: auto; width: 10%; margin-top: 10px" (click)="dodajSliku()">Dodaj sliku</button>
+
+    <div class="gallery">
+      <div class="image-container" *ngFor="let imageUrl of slike; let i = index;">
+        <img [src]="imageUrl" (click)="openImage(imageUrl)" alt="Slika">
+        <button *ngIf="loginInformation.isPremisijaAdmin" class="btn btn-danger" (click)="deleteSlika(i, imageUrl)">Obrisi sliku</button>
+      </div>
+    </div>
+
+    <div class="modal" [ngClass]="{'show': showModal}">
+      <div class="modal-content">
+        <span class="close-button" (click)="closeImage()">&times;</span>
+        <figure>
+          <img [src]="selectedImage" alt="Slika" class="mfp-img">
+          <figcaption>
+            <div class="mfp-bottom-bar">
+              <div class="mfp-title"></div>
+              <div class="mfp-counter"></div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>

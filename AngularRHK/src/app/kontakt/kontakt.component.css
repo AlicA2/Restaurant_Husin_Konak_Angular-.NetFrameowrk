@@ -1,0 +1,197 @@
+*{
+  font-family: 'Quicksand', sans-serif;
+}
+.contact-container {
+  padding: 20px;
+  text-align: center;
+}
+.row{
+  font-size: 14px;
+}
+.contact-title {
+  color:white;
+  font-size: 35px;
+  margin-bottom: 5px;
+  margin-top: 50px;
+  font-weight: 700;
+  line-height: normal;
+}
+.contact-subtitle{
+  margin-bottom: 90px;
+  color: white;
+  font-weight: 400;
+  font-family: 'Graviola-Regular';
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.co-title{
+  color: #e4b95b;
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 13px;
+}
+.visible {
+  visibility: visible !important;
+  animation-duration: 1000ms !important;
+  animation-delay: 300ms !important;
+  animation-name: fadeInDown !important;
+}
+.message-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  height: 70px;
+  min-height: 50px;
+  max-height: 70px;
+  overflow-y: auto;
+}
+
+.form {
+  position: relative;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.row{
+  color:white;
+}
+.form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(228, 185, 91, 0.3);
+  border-radius: 5px;
+  z-index: -1;
+}
+
+
+.form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="tel"],
+.form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+
+}
+
+.form textarea {
+  resize: vertical;
+}
+
+.form .g-recaptcha {
+  margin-bottom: 15px;
+}
+
+.form .btn-black {
+  background-color: #383848;
+  color: white;
+  padding: 10px 20px;
+  border: 2px solid #000;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form .btn-black:hover {
+  background-color:  #e4b95b;
+  color: white;
+  border-color: #333;
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-md-6 {
+  width: calc(50% - 10px);
+}
+
+.col-md-12 {
+  width: 100%;
+}
+.pohvala{
+  line-height: 26px;
+  font-size: 14px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  color: white;
+  opacity: 0.8;
+}
+
+.time-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  opacity: 0.7;
+  line-height: 26px;
+  font-size: 14px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  color: white;
+}
+
+.time-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  padding-right: 30px;
+  padding-left: 35px;
+}
+
+.week-name {
+  width: 20px;
+}
+.info{
+  margin-bottom: 30px;
+  color:white;
+ }
+.background-container {
+  background-image: url('src/assets/pozadina.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.send_message{
+opacity: 0.8;
+}
+.contact-container2,
+.table th,
+.table td
+{
+  color:white;
+}
+.contact-title2
+{
+  margin-top:5%;
+  text-align: center;
+}
+.table
+{
+  margin-top:2.5%;
+}

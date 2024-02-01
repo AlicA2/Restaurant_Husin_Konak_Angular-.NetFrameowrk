@@ -1,0 +1,51 @@
+<ul class="nav  nav-lg  pb-2 pt-2" style="background-color:rgb(59,59,59)">
+ <li class="nav-item" *ngIf="!loginInfo().isLogiran" >
+    <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+  </li>
+  <li class="nav-item" *ngIf="loginInfo().isLogiran">
+    <a class="nav-link " routerLink="/pocetna" routerLinkActive="active">POČETNA</a>
+  </li>
+  <li class="nav-item" *ngIf="loginInfo().isLogiran">
+    <a class="nav-link " routerLink="/meni" routerLinkActive="active">MENI</a>
+  </li>
+  <li class="nav-item" *ngIf="loginInfo().isLogiran">
+    <a class="nav-link " routerLink="/galerija" routerLinkActive="active">GALERIJA</a>
+  </li>
+  <li class="nav-item" *ngIf="loginInfo().isLogiran">
+    <a class="nav-link" routerLink="/o-nama" routerLinkActive="active">O NAMA</a>
+  </li>
+  <li class="nav-item logo">
+    <a href="/">
+      <img src="assets/logo.png" alt="Caffe &amp; Restaurant Perla logo">
+    </a>
+  </li>
+  <li class="nav-item" *ngIf="loginInfo().isLogiran">
+    <a class="nav-link" routerLink="/rezervacija" routerLinkActive="active">REZERVACIJA</a>
+  </li>
+  <li class="nav-item" *ngIf="loginInfo().isLogiran">
+    <a class="nav-link dostava" routerLink="/dostava" routerLinkActive="active">DOSTAVA</a>
+  </li>
+  <li class="nav-item" *ngIf="loginInfo().isLogiran">
+    <a class="nav-link " routerLink="/kontakt" routerLinkActive="active">KONTAKT</a>
+  </li>
+  <li class="nav-item" *ngIf="loginInfo().isLogiran">
+    <a class="nav-link " routerLink="/forum" routerLinkActive="active">FORUM</a>
+  </li>
+  <li class="nav-item" *ngIf="loginInfo().isPremisijaAdmin">
+    <a class="nav-link " routerLink="/korisnici" routerLinkActive="active">KORISNICI</a>
+  </li>
+    <div class="dropdown dropdown-right" style="color:white" *ngIf="loginInfo().isLogiran">>
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Profil
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" routerLink="/postavke-profila">Postavke profila</a></li>
+        <li><a class="dropdown-item" (click)="odjava()">Odjava</a></li>
+      </ul>
+    </div>
+</ul>
+<div class="container">
+
+  <router-outlet></router-outlet>
+</div>
+

@@ -1,0 +1,71 @@
+<div *ngIf="this.loginInformation.isPremisijaAdmin" class="contact-container">
+  <div class="background-container"></div>
+  <div class="poruke" *ngIf="poruke.length > 0">
+    <div class="centered-content">
+      <table>
+        <tbody>
+        <tr *ngFor="let poruka of poruke">
+          <td>
+            <div class="naslov">{{ poruka.title }}</div>
+            <div class="tekst-container">
+              <div class="tekst">{{ poruka.text }}</div>
+            </div>
+            <div class="akcije">
+              <button class="buttonSpasi" style="margin-right: 10px" (click)="urediPoruku(poruka)">Uredi</button>
+              <button class="buttonZatvori" style="margin-left: 10px" (click)="obrisiPoruku(poruka.id)">Obriši</button>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="otvoriFormu">
+  <button class="dodajInformacije" (click)="otvoriFormu()">Dodaj informacije</button>
+  <div *ngIf="formaVidljiva" class="unos-forma">
+    <div class="unos-polje">
+      <input type="text" [(ngModel)]="naslov" placeholder="Unesite naslov">
+    </div>
+    <div class="unos-polje unos-teksta">
+      <textarea [(ngModel)]="tekst" placeholder="Unesite tekst"></textarea>
+    </div>
+    <div class="buttoni">
+    <button class="buttonSpasi" (click)="spasiTekst()">Spasi</button>
+    <button class="buttonZatvori" (click)="odustani()">Odustani</button>
+    </div>
+  </div>
+  </div>
+  <div *ngIf="formaUredivanja">
+    <div class="unos-polje">
+      <input type="text" [(ngModel)]="naslov" placeholder="Unesite novi naslov">
+    </div>
+    <div class="unos-polje unos-teksta">
+      <textarea [(ngModel)]="tekst" placeholder="Unesite novi tekst"></textarea>
+    </div>
+    <div class="buttoni">
+    <button class="buttonSpasi" (click)="spasiUredjenuPoruku()">Spasi</button>
+    <button class="buttonZatvori" (click)="odustaniUredjivanje()">Odustani</button>
+      </div>
+  </div>
+</div>
+
+
+<div *ngIf="this.loginInformation.isPremisijaKorisnik" class="contact-container">
+  <div class="background-container"></div>
+  <div class="poruke" *ngIf="poruke.length > 0">
+    <div class="centered-content">
+      <table>
+        <tbody>
+        <tr *ngFor="let poruka of poruke">
+          <td>
+            <div class="naslov">{{ poruka.title }}</div>
+            <div class="tekst-container">
+              <div class="tekst">{{ poruka.text }}</div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

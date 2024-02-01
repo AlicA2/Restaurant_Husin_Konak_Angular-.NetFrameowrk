@@ -1,0 +1,382 @@
+
+.background-container {
+  background-image: url('src/assets/pozadina.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.result-container {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+}
+
+.col-md-9 {
+  width: 80%;
+  height: 100%;
+  margin-top: 35px;
+}
+
+.col-md-3 {
+  width: 20%;
+  height: 100%;
+  margin-top:120px;
+  color:white;
+}
+.naziv-kategorije{
+  padding-top: 15px;
+}
+.tekst-jela{
+  margin-bottom: 50px;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  color:white;
+}
+.odabrana-kategorija{
+  margin-bottom: 30px;
+  color:white;
+}
+
+.jela-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.jelo {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.slika-jela{
+  border-radius: 8%;
+  width: 200px;
+  height: 150px;
+}
+.dugmeDodaj{
+  background-color: green;
+  size:auto;
+  color:white;
+  margin-top: 5px;
+  opacity: 80%;
+}
+.privremenaForma{
+  color:white;
+}
+.korpa{
+  color:white;
+}
+.ukupnaCijena{
+  margin-top: 15px;
+  margin-bottom: 35px;
+  font-size: 30px;
+}
+
+.result-container {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.result-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.result-property {
+  font-weight: bold;
+}
+
+.result-value {
+  font-weight: normal;
+}
+#aggregated-data-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#aggregated-data-container h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#naslov2{
+  color:black;
+}
+#naslov1 {
+  text-align: center;
+  color: white;
+  position: absolute;
+  margin-top: 60px;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+}
+.sadržaj {
+  margin-top: 150px;
+}
+.data-entry {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color:white;
+}
+
+.data-entry .header {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.data-entry .json-data {
+  border: 1px solid #ddd;
+  padding: 10px;
+  white-space: pre-line;
+}
+
+.data-entry .data-element {
+  margin-bottom: 5px;
+}
+.izmjena {
+  background-color: #e8f7e3;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 40%;
+
+}
+.modal.fade.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.result-title {
+  font-size: 20px;
+  margin: 0;
+}
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.result-property {
+  font-weight: bold;
+}
+
+.result-value {
+  font-weight: normal;
+}
+.cijenaZaSve{
+  font-weight: bold;
+
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.yellow-button {
+  background-color: goldenrod;
+  color: black;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.dohvati {
+  background-color: #e4b95b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 20px;
+}
+.dohvati:hover {
+  background-color: #cc9f50;
+}
+.prikazi {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.prikazi:hover {
+  background-color: #4aaf4d;
+}
+.red-button {
+  background-color: darkred;
+  color: white;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.button-add{
+  background-color: greenyellow;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.custom-modal-dialog {
+  max-width: 800px;
+  width: 30%;
+}
+.custom-modal-dialog .modal-footer .btn-secondary {
+  background-color: red;
+  color: white;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-right: 10px;
+}
+
+.custom-modal-dialog .modal-footer .btn-primary {
+  background-color: green;
+  color: white;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.custom-modal-dialog .modal-header .custom-close-button:hover {
+  background-color: red;
+  width: 40px;
+  padding: 5px;
+}
+.custom-modal-dialog .modal-header .custom-close-button {
+  width: 40px;
+  padding: 5px;
+  border: none;
+}
+.kolicina{
+  width: 100px;
+  margin-right: 200px;
+}
+.modal.fade.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.modal-dialog {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.custom-close-button {
+  background-color: transparent;
+  width: 28px;
+  height: 33px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-close-button:hover {
+  background-color: red;
+  color: white;
+}
+
+.custom-close-button-text {
+  font-size: 20px;
+}
+.moj-background {
+  background-color: lightgrey;
+}
+#closeButton {
+  background-color: red;
+  color: white;
+  padding:10px;
+  margin-right: 10px;
+}
+#spasiButton{
+  background-color: green;
+  color: white;
+  padding:10px;
+}
+.kompletForma{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.buttonSpasi {
+  background-color: forestgreen;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonSpasi:hover {
+  background-color: darkgreen;
+}
+.buttonZatvori {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonZatvori:hover {
+  background-color: darkred;
+}
+.modal-title{
+  margin-top: 20px;
+}
+.data-element::before {
+  content: "•";
+  margin-right: 5px;
+  color: red;
+}

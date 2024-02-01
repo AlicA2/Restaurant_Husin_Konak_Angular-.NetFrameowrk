@@ -1,0 +1,76 @@
+<div class="background-container"></div>
+<div *ngIf="loginInformation.isPremisijaKorisnik" class="container">
+  <div class="rezervacija">
+    <h1>Rezervacija</h1>
+    <div class="input-container">
+      <div class="input-row">
+        <div class="input-field">
+          <label for="Ime">Ime:</label>
+          <input type="text" id="Ime" [(ngModel)]="rezervacija.Ime">
+        </div>
+        <div class="input-field">
+          <label for="Prezime">Prezime:</label>
+          <input type="text" id="Prezime" [(ngModel)]="rezervacija.Prezime">
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-field">
+          <label for="DatumRezervacije">Datum Rezervacije:</label>
+          <input type="date" id="DatumRezervacije" [min]="minDate" [(ngModel)]="rezervacija.DatumRezervacije">
+        </div>
+        <div class="input-field">
+          <label for="Vrijeme">Vrijeme:</label>
+          <select id="Vrijeme" (change)="onTimeChange($event)" [(ngModel)]="rezervacija.Vrijeme">
+            <option *ngFor="let time of timeOptions" [value]="time">{{ time }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-field">
+        <label for="BrojOsoba">Broj Osoba:</label>
+        <select id="BrojOsoba" [(ngModel)]="rezervacija.BrojOsoba">
+          <option value="2">2</option>
+          <option value="4">4</option>
+          <option value="6">6+</option>
+        </select>
+      </div>
+    </div>
+    <button class="buttonSpasi" (click)="Slanje()">Pošalji rezervaciju</button>
+  </div>
+  <div *ngIf="sveRezervacije && sveRezervacije.length > 0" class="postojece-rezervacije">
+    <h2>Postojeće rezervacije</h2>
+    <ul>
+      <li *ngFor="let rezervacija of korisnikPrikaz">
+        <p>
+          Vaša rezervacija je : <span class="status-text" [style.color]="getStatusTextColor(rezervacija.rezervisano)">{{rezervacija.rezervisano}}</span>
+        </p>
+        <p>Ime i prezime: <strong>{{ rezervacija.ime + ' ' + rezervacija.prezime }}</strong></p>
+        <p>Datum rezervacije: <strong>{{ rezervacija.datumRezervacije | date: 'yyyy-MM-dd' }}</strong></p>
+        <p>Vrijeme: <strong>{{ rezervacija.vrijeme | slice: 11 }}</strong></p>
+        <p>Broj Osoba: <strong>{{ rezervacija.brojOsoba }}</strong></p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<div *ngIf="this.loginInformation.isPremisijaAdmin" class="container2">
+  <div *ngIf="sveRezervacije && sveRezervacije.length > 0" class="postojece-rezervacije2">
+    <h2 class="section-title">Postojeće rezervacije</h2>
+    <ul>
+      <li *ngFor="let rezervacija of sveRezervacije" class="reservation-item">
+        <p>Ime i prezime: <strong>{{ rezervacija.ime + ' ' + rezervacija.prezime }}</strong></p>
+        <p>Datum rezervacije: <strong>{{ rezervacija.datumRezervacije | date: 'yyyy-MM-dd' }}</strong></p>
+        <p>Vrijeme: <strong>{{ rezervacija.vrijeme | slice: 11 }}</strong></p>
+        <p>Broj Osoba: <strong>{{ rezervacija.brojOsoba }}</strong></p>
+        <p>
+          Status rezervacije : <span class="status-text" [style.color]="getStatusTextColor(rezervacija.rezervisano)">{{rezervacija.rezervisano}}</span>
+        </p>
+        <div class="button-container">
+          <button class="approve-button" (click)="updateRezervisano(rezervacija.id, 'Potvrđena')">Rezervacija potvrđena</button>
+          <button class="reject-button" (click)="updateRezervisano(rezervacija.id, 'Odbijena')">Rezervacija odbijena</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="background-container"></div>
+
+<div class="sve">
+<div>
+  <input [(ngModel)] = "filter_ime_prezime" type="checkbox"> Filter by <span style="font-weight: bold">Ime / prezime</span> <br>
+  <input [(ngModel)]="ime_prezime" [disabled]="!filter_ime_prezime"><br>
+  <hr>
+</div>
+
+<div class="tabela">
+  <table class="table table-bordered mt-4">
+    <thead>
+    <th>ID</th>
+    <th>Ime</th>
+    <th>Prezime</th>
+    <th>Telefon</th>
+    <th>Email</th>
+    <th>Spol</th>
+    <th>Grad</th>
+    <th>Obrisi</th>
+    </thead>
+    <tbody >
+    <tr *ngFor="let k of getPodaci()">
+      <td>{{k.id}}</td>
+      <td>{{k.ime}}</td>
+      <td>{{k.prezime}}</td>
+      <td>{{k.telefon}}</td>
+      <td>{{k.email}}</td>
+      <td>{{k.spol}}</td>
+      <td>{{k.grad}}</td>
+
+      <td>
+        <button class="btn btn-danger" (click)="obrisi(k)">Obrisi</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+</div>

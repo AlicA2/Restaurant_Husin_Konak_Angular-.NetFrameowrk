@@ -1,0 +1,75 @@
+<div class="background-container"></div>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <form  class="w-50 border border-2  p-3 mt-5 mb-4">
+      <div class="mb-3">
+        <label for="ime" class="form-label">Ime</label>
+        <input type="text" name="Ime" class="form-control" id="ime"
+               [(ngModel)]="ime">
+      </div>
+      <div class="mb-3">
+        <label for="prezime" class="form-label">Prezime</label>
+        <input type="text" name="Prezime" class="form-control" id="prezime"
+               [(ngModel)]="prezime"  >
+      </div>
+      <div class="mb-3">
+        <label for="datum" class="form-label">Datum rodjenja</label>
+        <input type="date" name="Datum" class="form-control" id="datum"
+               [(ngModel)]="datum_rodjenja">
+      </div>
+      <div class="mb-3">
+        <label for="telefon" class="form-label">Telefon</label>
+        <input type="text" name="Telefon" class="form-control" id="telefon"
+               [(ngModel)]="telefon">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="Email" class="form-control" id="email"
+               [(ngModel)]="email" >
+      </div>
+      <div class="mb-3">
+        <label for="adresa" class="form-label">Adresa</label>
+        <input type="text" name="Adresa" class="form-control" id="adresa"
+               [(ngModel)]="adresa">
+      </div>
+      <div class="mb-3">
+        <label for="jmbg" class="form-label">JMBG</label>
+        <input type="text" name="JMBG" class="form-control" id="jmbg"
+               [(ngModel)]="jmbg" >
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label" >Spol</label>
+        <select class="form-control" [(ngModel)]="spol" name="spol">
+          <option >....</option>
+          <option >Muski</option>
+          <option >Zenski</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Grad</label>
+        <select class="form-control" [(ngModel)]="grad_ID" name="grad">
+          <option *ngFor="let g of gradovi" [value]="g.id">{{g.naziv}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="sprema" class="form-label">Strucna sprema</label>
+        <input type="text" name="sprema" class="form-control" id="sprema"  [(ngModel)]="strucna_sprema">
+      </div>
+      <div class="mb-3">
+        <label for="zaposlenje" class="form-label">Datum zaposlenja</label>
+        <input type="date" name="zaposlenje" class="form-control" id="zaposlenje"   [(ngModel)]="datum_zaposlenja">
+      </div>
+      <div class="mb-3">
+        <label for="korsnickoIme" class="form-label">Korisnicko Ime</label>
+        <input type="email" name="KorisnickiIme" class="form-control" id="korsnickoIme" [(ngModel)]="korisnickoIme" >
+      </div>
+      <div class="mb-3">
+        <label for="lozinka" class="form-label">Password</label>
+        <input type="password" class="form-control" id="lozinka" name="lozinka" [(ngModel)]="lozinka">
+      </div>
+      <button   class="btn btn-primary float-end" (click)="registrcaija()">Registruj se</button>
+
+    </form>
+
+  </div>
+</div>
